@@ -1,0 +1,194 @@
+
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Poppins', sans-serif;
+}
+
+.navbar{
+	display: flex;
+	align-items: center;
+	padding: 0 50px;
+}
+nav{
+	flex:1;
+	text-align: right;
+}
+
+nav ul {
+	display: inline-block;
+	list-style: none;
+}
+
+nav ul li{
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.logo h1{
+	font-family: "Times New Roman", Times, serif;
+	font-size: 25px;
+	margin: 25px 0;
+	color: white;
+	cursor: pointer;
+}
+
+nav ul li a{
+	text-decoration: none;
+	color: white;
+	font-size: 16px;
+	color: #fff;
+	padding: 10px 10px;
+	position: relative;
+}
+
+nav ul li a:after {    
+	background: none repeat scroll 0 0 transparent;
+	bottom: 0;
+	content: "";
+	display: block;
+	height: 2px;
+	left: 50%;
+	position: absolute;
+	background: #F86754;
+	transition: width 0.3s ease 0s, left 0.3s ease 0s;
+	width: 0;
+}
+
+nav ul li a:hover:after { 
+	width: 100%; 
+	left: 0; 
+}
+
+.container p{
+	color: white;
+	font-size: 24px;
+}
+
+.container{
+	max-width: 1300px;
+	margin: auto;
+}
+
+.row{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	
+}
+
+.col-2{
+	flex-basis: 50%;
+	min-width: 500px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.col-2 .this-image{
+	margin: auto;
+	height: auto;
+	max-width: 100%;
+	padding: 50px 0;
+	transition: transform .7s ease;
+}
+
+.col-2 .this-image:hover{
+	transform: scale(1.1);
+}
+
+.col-2 h1{
+	font-family: "Times New Roman", Times, serif;
+	font-size: 60px;
+	margin: 25px 0;
+	color: white;
+}
+
+.btn{
+	display: inline-block;
+	background: #ff523b;
+	color: white;
+	padding: 8px 30px;
+	margin: 30px 0;
+	border-radius: 30px;
+	font-size:15px;
+	text-decoration: none;
+	transition: background 0.5s;
+}
+
+.btn:hover{
+	background: #563434;
+}
+
+.header{
+	background-image: url('../images/images1.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.header .row{
+	margin-top: 70px;
+}
+
+.products{
+	margin: 70px 0;
+}
+
+.col-3{
+	flex-basis: 30%;
+	min-width: 350px;
+	margin-bottom: 30px;
+}
+
+.col-3 img{
+	width: 100%;
+	transition: transform .5s ease;
+}
+
+.col-3:hover img{
+	 transform: scale(1.1);
+}
+
+.small-container{
+	max-width: 1080px;
+	margin: auto;
+}
+
+.title{
+	text-align: center;
+	margin: 0 auto 80px;
+	position: relative;
+	line-height: 60px;
+	color: #555;
+}
+
+.title::after{
+	content: '';
+	background: #ff523b;
+	width: 80px;
+	height: 5px;
+	border-radius: 5px;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+h4{
+	color: #555;
+	font-weight: normal;
+}
+
+.col-3 p {
+	font-size: 14px;
+}
+
+.rating .fa{
+	color: #ff523b;
+}
+
