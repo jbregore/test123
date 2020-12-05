@@ -644,6 +644,18 @@ ul{
 	input[type=submit]{
 		float: left;
 	}
+
+	.contact-us p, .about-us p{
+		width: 80%;
+		margin: auto;
+	}
+
+	.contact-us .my-form{
+		width: 80%;
+		margin: auto;
+		margin-top: 20px;
+	}
+
 }
 
 

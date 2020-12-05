@@ -10,5 +10,4 @@ function menuToggle() {
 	else{
 		menuItems.style.maxHeight = "0px";
 	}
-
 }
