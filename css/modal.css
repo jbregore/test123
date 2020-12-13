@@ -1,0 +1,156 @@
+*{
+	box-sizing: border-box;
+}
+
+.modal-container{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0,0,0,0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+  	opacity: 0;
+}
+
+.modal-container.show{
+  pointer-events: auto;
+  opacity: 1;
+}
+
+
+.modal{
+	background-color: white;
+	width: 800px;
+	max-width: 100%;
+	border-radius: 7px;
+	text-align: center;
+	height: 500px;
+}
+
+#close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#close:hover,
+#close:focus {
+  color: #ff523b;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 10px;
+  background-color: #3E3B3B;
+  height: 80px;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+}
+
+.modal-header h2{
+	float: left;
+	color: white;
+	padding-left: 20px;
+}
+
+.modal-body{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.col-70{
+	flex-basis: 60%;
+	text-align: left;
+	padding-top: 30px;
+	padding-left: 30px;
+}
+
+.col-70 label{
+	color: #4A4949;
+	font-size: 16px;
+	flex-basis: 30%;
+}
+
+.col-70 select{
+	width: 90%;
+	margin: 3px 20px 10px 0;
+	padding: 5px;
+	outline: none;
+	font-size: 14px;
+	color: #777;
+}
+
+.col-70 input[type=text],
+.col-70 input[type=number]{
+	width: 90%;
+	margin: 3px 20px 10px 0;
+	padding: 5px;
+	outline: none;
+	font-size: 14px;
+	color: #777;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.col-30{
+	flex-basis: 30%;
+	padding-top: 60px;
+	padding-right: 20px;
+	text-align: left;
+}
+
+.col-30 img{
+	border: 1px solid #777;
+	width: 250px;
+	height: 270px;
+	margin-bottom: 20px;
+}
+
+.col-30 input[type=file]{
+	display: none;
+}
+
+
+.col-30 .upload-btn {
+	width: 120px;
+	display: inline-block;
+	background: #337ab7;
+	color: white;
+	padding: 10px 15px;
+	font-size: 14px;
+	border: none;
+	cursor: pointer;
+
+}
+
+.col-30 .add-btn{
+  width: 120px;
+  display: inline-block;
+  background: #337ab7;
+  color: white;
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.col-30 .add-btn:focus{
+  outline: none;
+}
+
+.col-30 .add-btn i{
+  font-size: 14px;
+  padding: 3px;
+}
