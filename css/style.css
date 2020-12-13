@@ -2,17 +2,10 @@ html{
 	scroll-behavior: smooth;
 }
 
-@media screen and (prefers-reduced-motion: reduce) {
-	html {
-		scroll-behavior: auto;
-	}
-}
-
 *{
 	margin:0;
 	padding: 0;
 	box-sizing: border-box;
-	overflow-x: hidden;
 }
 
 body{
@@ -70,8 +63,7 @@ nav ul li a{
 }
 
 .active:hover:after{
-	width: 100%; 
-	left: 35px; 
+	display: none;
 }
 
 nav ul li a:after {    
@@ -102,6 +94,7 @@ nav ul li a:hover:after {
 .container{
 	max-width: 1300px;
 	margin: auto;
+	padding-bottom: 50px;
 }
 
 .row{
@@ -419,9 +412,7 @@ h4{
 
 .contact-us h4{
 	color: white;
-	font-family: "Times New Roman", Times, serif;
 	font-size: 28px;
-	line-height: 60px;
 }
 
 .contact-us p{
@@ -443,25 +434,29 @@ h4{
 
 .my-form{
 	padding-top: 20px;
-	background-color:rgba(0, 0, 0, 0.2);
+	background-color:rgba(0, 0, 0, 0.5);
 	border-radius: 20px;
-	height: 330px;
+	height: 400px;
 	padding-left: 20px;
 	padding-right: 20px;
 }
 
-input[type=text],
-input[type=email]{
-	height: 35px;
+form input{
 	width: 100%;
-	margin: 6px 0;
+	height: 30px;
+	margin: 10px 0;
+	padding: 0 10px;
+	border: 1px solid #ccc; 
 	border-radius: 5px;
-	font-size: 14px;
-	color: #555;
-	border: none;
 }
 
+input[type=text],
+input[type=email],
+textarea:focus{
+	outline: none;
+}
 textarea{
+	padding: 0 10px;
 	color: #555;
 	margin: 6px 0;
 	border-radius: 5px;
@@ -470,6 +465,7 @@ textarea{
 	overflow: auto;
 	width: 100%;
 	border: none;
+	border: 1px solid #ccc;
 }
 
 input[type=submit]{
@@ -483,6 +479,7 @@ input[type=submit]{
 	transition: background 0.5s;
 	cursor: pointer;
 	border: none;
+	width: 100%;
 }
 
 input[type=submit]:hover{
@@ -586,15 +583,97 @@ ul{
 
 
 
+/*------ account.html ------*/
+/*------ form-container ------*/
+.form-container{
+	background-color:rgba(0, 0, 0, 0.3);
+	border-radius: 20px;
+	width: 400px;
+	height: 400px;
+	position: relative;
+	text-align: center;
+	padding: 20px 0;
+	margin: auto;
+	overflow: hidden;
+}
 
+.form-container span{
+	padding: 0 10px;
+	color: white;
+	cursor: pointer;
+	width: 100px;
+	display: inline-block;
+}
 
+.form-container a{
+	color: white;
+	font-size: 14px;
+}
 
+.form-container a:hover{
+	color: #ff523b;
+}
 
+.form-btn{
+	display: inline-block;
+}
 
+.form-container form{
+	max-width: 400px;
+	padding: 0 20px;
+	position: absolute;
+	top: 130px;
+	transition: transform 1s;
+}
+
+form input{
+	width: 100%;
+	height: 30px;
+	margin: 10px 0;
+	padding: 0 10px;
+	border: 1px solid #ccc; 
+	border-radius: 5px;
+}
+
+form .btn{
+	width: 100%;
+	border: none;
+	cursor: pointer;
+	margin: 10px 0;
+}
+
+form .btn:focus{
+	outline: none;
+}
+
+#LoginForm{
+	left: -400px;
+}
+
+#RegForm{
+	left: 0px;
+}
+
+form a{
+	font-size: 14px;
+}
+
+#Indicator{
+	width: 100px;
+	border: none;
+	background: #ff523b;
+	height: 3px;
+	margin-top: 8px;
+	transform: translateX(100px);
+	transition: transform 1s;
+}
 
 /*------ Responsive ------*/
 
 @media only screen and (max-width: 800px){
+	*{
+		overflow-x: hidden;
+	}
 
 	nav ul {
 		position: absolute;
@@ -624,6 +703,10 @@ ul{
 }
 
 @media only screen and (max-width: 600px){
+	*{
+		overflow-x: hidden;
+	}
+	
 	.row{
 		text-align: center;
 	}
@@ -656,7 +739,19 @@ ul{
 		margin-top: 20px;
 	}
 
+	/* account.html */
+	.form-container{
+		width: 80%;
+		margin: auto;
+		margin-top: 20px;
+	}
+
+	#LoginForm{
+		width: 100%;
+	}
+
 }
+
 
 
 
