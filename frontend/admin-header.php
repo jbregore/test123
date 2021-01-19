@@ -1,3 +1,18 @@
+<!-- <?php
+
+  // session_start();
+  // session_destroy();
+
+  // if(isset($_SESSION['user_id'])){
+  //   //pass the json data here
+  //   //mag query gamit ang user_id
+  // }
+  // else{
+  //   header("Location: account.php");
+  //   exit;
+  // }
+
+?> -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +70,7 @@
   <div class="admin-nav">
     <ul>
       <li><a href="">Settings</a></li>
-      <li><a href="">Logout</a></li>
+      <li><a href="logout.php">Logout</a></li>
     </ul>
   </div>
 </div>

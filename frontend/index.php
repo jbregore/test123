@@ -107,7 +107,7 @@
 			<div class="col-4">
 				<img src="assets/images/products/latest-1.jpg" width="250px" >
 				<h4>HGHMNDS BPLN2</h4>
-				<div class="rating">
+				<div class="ratingg">
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
@@ -120,7 +120,7 @@
 			<div class="col-4">
 				<img src="assets/images/products/latest-2.jpg" width="250px" >
 				<h4>HGHMNDS WPLN1</h4>
-				<div class="rating">
+				<div class="ratingg">
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
@@ -133,7 +133,7 @@
 			<div class="col-4">
 				<img src="assets/images/products/latest-3.jpg" width="250px" >
 				<h4>HGHMNDS BPLK2</h4>
-				<div class="rating">
+				<div class="ratingg">
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
@@ -145,7 +145,7 @@
 			<div class="col-4">
 				<img src="assets/images/products/latest-4.jpg" width="250px" >
 				<h4>HGHMNDS WPLK1</h4>
-				<div class="rating">
+				<div class="ratingg">
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
@@ -160,7 +160,7 @@
 			<div class="col-4">
 				<img src="assets/images/products/latest-5.jpg" width="250px" >
 				<h4>KALMADO BLPKN5</h4>
-				<div class="rating">
+				<div class="ratingg">
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
@@ -173,7 +173,7 @@
 			<div class="col-4">
 				<img src="assets/images/products/latest-6.jpg" width="250px" >
 				<h4>KALMADO BPLW2</h4>
-				<div class="rating">
+				<div class="ratingg">
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
@@ -186,7 +186,7 @@
 			<div class="col-4">
 				<img src="assets/images/products/latest-7.jpg" width="250px" >
 				<h4>KALMADO RPLN4</h4>
-				<div class="rating">
+				<div class="ratingg">
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
@@ -198,7 +198,7 @@
 			<div class="col-4">
 				<img src="assets/images/products/latest-8.jpg" width="250px" >
 				<h4>KALMADO NPLK3</h4>
-				<div class="rating">
+				<div class="ratingg">
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
 					<i class="fa fa-star"></i>
@@ -239,7 +239,7 @@
 				<div class="col-3"> <!----- start col ------>
 					<i class="fa fa-quote-left"></i>
 					<p>I was recently at your store, what a delight to find you! Thank you, not only for your expertise but also for you encouragement in making more conscientious choices.</p>
-					<div class="rating">
+					<div class="ratingg">
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
@@ -253,7 +253,7 @@
 				<div class="col-3"> <!----- start col ------>
 					<i class="fa fa-quote-left"></i>
 					<p>I LOVE THE SHIRTS, they are probably the best t-shirts I have ever had. I'll be buying all the colors when I have some extra cash.</p>
-					<div class="rating">
+					<div class="ratingg">
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
@@ -267,7 +267,7 @@
 				<div class="col-3"> <!----- start col ------>
 					<i class="fa fa-quote-left"></i>
 					<p>How uplifting it was for me to see a business run with such heart, integrity and faith. Not only did I purchase some wonderful clothing, but I felt better about myself.</p>
-					<div class="rating">
+					<div class="ratingg">
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>

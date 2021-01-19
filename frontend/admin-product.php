@@ -37,8 +37,8 @@ include 'admin-header.php';
 
 					<label for="prod-brand">Brand :</label>
 					<select name="prod-brand" id="sel-prod-brand" >
-						<option value="kalmado" selected>KALMADO</option>
-						<option value="kush">KUSH.co</option>
+						<option value="hghmnds" selected>HGHMNDS</option>
+						<option value="kalmado">KALMADO</option>
 					</select><br>
 
 					<label for="prod-name">Product Name :</label>

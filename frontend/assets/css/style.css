@@ -227,7 +227,8 @@ h4{
 	font-size: 14px;
 }
 
-.rating .fa{
+.rating .fa,
+.ratingg .fa{
 	color: #ff523b;
 }
 
@@ -663,7 +664,8 @@ form a{
 	transform: translateX(100px);
 	transition: transform 1s;
 }
-#password-check{
+#password-check,
+#login-check{
 	color:white;
 	font-size: 16px;
 }

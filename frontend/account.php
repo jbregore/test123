@@ -55,12 +55,16 @@
 							<hr id="Indicator">
 						</div>
 
-						<form id="LoginForm">
-							<input type="text" name="" placeholder="Username" required="">
-							<input type="password" name="" placeholder="Password" required="">
+						<form method="POST" id="LoginForm" enctype="multipart/form-data">
+							<input type="text" name="" placeholder="Username" id="login-user-username" required=""
+							pattern=".{8,}" maxlength="10">
+							<input type="password" name="" placeholder="Password" id="login-user-password" required="" pattern=".{8,}" maxlength="10">
 
 							<button type="submit" class="btn">Login</button>
 							<a href="">Forgot Password</a>
+
+							<br><br>
+							<small id="login-check"></small>
 						</form>
 
 						<form method="POST" id="reg-form" enctype="multipart/form-data">
@@ -82,7 +86,6 @@
 
 		</div><!--end container-->
 	</div><!--end header-->
-
 
 
 
@@ -174,10 +177,41 @@
 				else{
 					document.getElementById('password-check').innerHTML = "Password didn't match";
 				}
+			});//register
+
+			// ********** login-form submit ********** //
+							
+			$('#LoginForm').on('submit', function(event){
+				event.preventDefault();
+
+				//json		
+				var login_data = {
+					login_username: $("#login-user-username").val(),
+					login_password: $('#login-user-password').val()
+				};
+
+				
+
+				$.ajax({
+					type:'POST',
+					url:'../backend/api/users/login.php',
+					data:JSON.stringify(login_data),
+					contentType: false,
+					// cache: false,
+					processData:false,
+					success: function(data){
+						window.alert("Welcome " + data.user_username);
+						window.location = "user-dashboard-test.php";
+					},
+					error: function (jqXHR, exception) { 
+						document.getElementById('login-check').innerHTML = "Account not found.";
+						$("#login-user-username").val('');
+						$("#login-user-password").val('');
+					}
+				});//end ajax
 					
-
- 			});//register
-
+				
+			});//login
 
  			//error message
  			function error_function(jqXHR, exception){

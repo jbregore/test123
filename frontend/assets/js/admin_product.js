@@ -44,8 +44,7 @@
    				book_data += '<td>'+value.prod_qty+'</td>';
    				book_data += '<td>'+value.prod_datein+'</td>';
    				book_data += '<td>'+value.prod_status+'</td>';
-   				book_data += '<td><button class="view-btn" id="'+value.prod_id+'" >View</button>';
-   				book_data += '<button class="edit-btn" id="'+value.prod_id+'" >Edit</button>';
+   				book_data += '<td><button class="edit-btn" id="'+value.prod_id+'" >Edit</button>';
    				book_data += '<button class="del-btn" id="'+value.prod_id+'" >Delete</button></td>';
    				book_data += '</tr>';
 
@@ -310,7 +309,7 @@
   	$("#modal-container").fadeOut();
 
   	$("#sel-prod-category").val('t-shirt');
-  	$("#sel-prod-brand").val('kalmado');
+  	$("#sel-prod-brand").val('hghmnds');
   	$("#txt-prod-name").val('');
   	$("#txt-prod-price").val('');
   	$("#txt-prod-qty").val('');

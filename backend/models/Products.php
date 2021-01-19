@@ -29,6 +29,17 @@ class Product{
 		return $stmt;
 	}
 
+	// fetch all t-shirt
+	public function fetch_tshirt(){
+		// Create query
+		$query = "SELECT * FROM $this->table_name WHERE prod_category = 't-shirt' ORDER BY prod_brand";
+
+		//execute query
+		$stmt = $this->conn->query($query);
+
+		return $stmt;
+	}
+
 	// get single product
 	public function fetch_single() {
         // Create query
@@ -143,14 +154,3 @@ class Product{
 
 }//end product
 
-class convertToString{
-	public $str;
-
-	public function __construct($str) {
-		$this->str = $str;
-	}
-
-	public function __toString() {
-		return (string) $this->str;
-	}
-}
