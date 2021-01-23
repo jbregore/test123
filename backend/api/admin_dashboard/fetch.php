@@ -12,6 +12,7 @@ if($_SERVER["REQUEST_METHOD"] !== "GET"){
 include "../../config/Database.php";
 include "../../models/Products.php";
 include "../../models/Users.php";
+include "../../models/Transaction.php";
 
 // instantiate database
 $database = new Database();
@@ -23,11 +24,17 @@ $product = new Product($db);
 //instantiate users
 $user = new User($db);
 
+//instantiate users
+$trans = new Transaction($db);
+
 //fetch product form db
 $result_prod = $product->total_products();
 
 //fetch users form db
 $result_users = $user->total_users();
+
+//fetch sales form db
+$result_sales = $trans->total_sales();
 
 //total array
 $dash_arr = array();
@@ -40,6 +47,11 @@ while($row = $result_prod->fetch_assoc()){
 // users
 while($row = $result_users->fetch_assoc()){
 	$dash_arr['totalu'] = $row;
+}
+
+// sales
+while($row = $result_sales->fetch_assoc()){
+	$dash_arr['totals'] = $row;
 }
 
 

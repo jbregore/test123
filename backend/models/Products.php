@@ -14,6 +14,8 @@ class Product{
 	public $prod_status;
 	public $prod_photo;
 
+	public $current_qty;
+
 	public function __construct($db){
 		$this->conn = $db;
 	}
@@ -32,7 +34,7 @@ class Product{
 	// fetch all t-shirt
 	public function fetch_tshirt(){
 		// Create query
-		$query = "SELECT * FROM $this->table_name WHERE prod_category = 't-shirt' ORDER BY prod_brand";
+		$query = "SELECT * FROM $this->table_name WHERE prod_category = 't-shirt' AND prod_status = 'available' AND prod_qty != 0 ORDER BY prod_brand";
 
 		//execute query
 		$stmt = $this->conn->query($query);
@@ -116,6 +118,117 @@ class Product{
 			}
 			return false;
 		}      
+	}
+
+	// // update product qty
+	public function update_qty() {
+
+		$get_qty = "SELECT prod_qty FROM $this->table_name WHERE prod_id = ?";
+
+		$stmt = mysqli_stmt_init($this->conn);
+
+		if(!mysqli_stmt_prepare($stmt, $get_qty)){
+			echo "SQL statement failed";
+		}
+		else{
+			mysqli_stmt_bind_param($stmt, "s", $this->prod_id);
+
+			if(mysqli_stmt_execute($stmt)){
+				$result = mysqli_stmt_get_result($stmt);
+
+				while($row = mysqli_fetch_assoc($result)){
+					$this->current_qty = $row['prod_qty'];
+				}
+
+				// Create query
+				$query = "UPDATE $this->table_name SET prod_qty = ? WHERE prod_id = ?";
+
+			    // prepare and bind
+				$stmt = mysqli_stmt_init($this->conn);
+
+				if(!mysqli_stmt_prepare($stmt, $query)){
+					echo "SQL statement failed";
+				}
+				else{
+					$new_qty = $this->current_qty - $this->prod_qty;
+					mysqli_stmt_bind_param($stmt, "is", $new_qty, $this->prod_id);
+
+					if(mysqli_stmt_execute($stmt)){
+						return true;
+					}
+					return false;
+				} 
+				
+			}
+			return false;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		// $get_qty = "SELECT prod_qty FROM $this->table_name WHERE prod_id = ?";
+
+		// // prepare and bind
+		// $stmt = mysqli_stmt_init($this->conn);
+
+		// if(!mysqli_stmt_prepare($stmt, $get_qty)){
+		// 	echo "SQL statement failed";
+		// }
+		// else{
+		// 	mysqli_stmt_bind_param($stmt, "s", $this->user_id);
+
+		// 	if(mysqli_stmt_execute($stmt)){
+		// 		// // return true;
+		// 		mysqli_stmt_execute($stmt);
+		// 		$result = mysqli_stmt_get_result($stmt);
+
+		// 		while($row = mysqli_fetch_assoc($result)){
+		// 			$current_qty = $row['prod_qty'];
+		// 		}
+
+		// 		// Create query
+		// 		$query = "UPDATE $this->table_name SET prod_qty = ? WHERE prod_id = ?";
+
+		// 	    // prepare and bind
+		// 		$stmt = mysqli_stmt_init($this->conn);
+
+		// 		if(!mysqli_stmt_prepare($stmt, $query)){
+		// 			echo "SQL statement failed";
+		// 		}
+		// 		else{
+		// 			$new_qty = $current_qty - $this->prod_qty;
+		// 			mysqli_stmt_bind_param($stmt, "is", $new_qty, $this->prod_id);
+
+		// 			if(mysqli_stmt_execute($stmt)){
+		// 				return true;
+		// 			}
+		// 			return false;
+		// 		} 
+		// 	}
+		// 	return false;
+		// } 
 	}
 
     // delete product

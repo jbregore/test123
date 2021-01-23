@@ -253,5 +253,27 @@ class Cart{
     	}      
 	}
 
+
+	// delete product
+    public function delete_qty() {
+        // Create query
+    	$query = "DELETE FROM $this->table_name WHERE user_id = ?";
+
+          // prepare and bind
+    	$stmt = mysqli_stmt_init($this->conn);
+
+    	if(!mysqli_stmt_prepare($stmt, $query)){
+    		echo "SQL statement failed";
+    	}
+    	else{
+    		mysqli_stmt_bind_param($stmt, "s", $this->user_id);
+
+    		if(mysqli_stmt_execute($stmt)){
+    			return true;
+    		}
+    		return false;
+    	}      
+	}
+
 }//end cart
 

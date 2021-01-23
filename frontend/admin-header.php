@@ -50,18 +50,15 @@
       <i class="fa fa-users"></i>
       <span>Users</span>
     </a>
+    <a href="admin-transaction.php" id="at">
+      <i class="fa fa-credit-card" ></i>
+      <span>Transactions</span>
+    </a>
     <a href="#">
      <i class="fa fa-comments-o" ></i>
      <span>Feedbacks</span>
    </a>
-   <a href="#">
-    <i class="fa fa-credit-card" ></i>
-    <span>Transactions</span>
-  </a>
-  <a href="#">
-    <i class="fa fa-file-text" ></i>
-    <span>Reports</span>
-  </a>
+   
 </div> <!-- end sidebar -->
 
 

@@ -4,7 +4,7 @@ $(document).ready(function(){
     $('#au').addClass('active');
     $('#ad').removeClass('active');
     $('#ap').removeClass('active');
-
+    $('#at').removeClass('active');
 });
 
 // ********** nav ********** //
@@ -52,4 +52,45 @@ function load_data(){
 		}
 	});
 }
+
+// ********** block ********** //
+$(document).on('click', '.block-btn', function(){
+	if (confirm('Are you sure you want to block?')) {
+		var user_id_this = $(this).attr("id");
+		var user = {user_id: user_id_this};
+		$.ajax({
+			type: 'PUT',
+			url: '../backend/api/users/block.php',
+			data: JSON.stringify(user),
+			success:function(data){
+				$('#prod-table').html('');
+				load_data();
+				window.alert(data.message);
+			}
+		});
+	} else {
+
+	}
+});
+
+
+// ********** unblock ********** //
+$(document).on('click', '.unblock-btn', function(){
+	if (confirm('Are you sure you want to unblock?')) {
+		var user_id_this = $(this).attr("id");
+		var user = {user_id: user_id_this};
+		$.ajax({
+			type: 'PUT',
+			url: '../backend/api/users/unblock.php',
+			data: JSON.stringify(user),
+			success:function(data){
+				$('#prod-table').html('');
+				load_data();
+				window.alert(data.message);
+			}
+		});
+	} else {
+
+	}
+});
 

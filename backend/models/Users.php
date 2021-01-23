@@ -145,12 +145,52 @@ class User{
 			}//end first stmt
 			return false;
 		} 
-
-
-
-		
+	
 	}
 
+
+	//block
+	public function block(){
+		$query = "UPDATE $this->table_name SET user_status = ? WHERE user_id = ?";
+
+	          // prepare and bind
+			$stmt = mysqli_stmt_init($this->conn);
+
+		if(!mysqli_stmt_prepare($stmt, $query)){
+			echo "SQL statement failed";
+		}
+		else{
+			$user_new_status = 'Inactive';
+			mysqli_stmt_bind_param($stmt, "ss", $user_new_status, $this->user_id);
+
+			if(mysqli_stmt_execute($stmt)){
+				return true;
+			}
+			return false;
+		} 
+	}
+
+
+	//unblock
+	public function unblock(){
+		$query = "UPDATE $this->table_name SET user_status = ? WHERE user_id = ?";
+
+	          // prepare and bind
+			$stmt = mysqli_stmt_init($this->conn);
+
+		if(!mysqli_stmt_prepare($stmt, $query)){
+			echo "SQL statement failed";
+		}
+		else{
+			$user_new_status = 'Active';
+			mysqli_stmt_bind_param($stmt, "ss", $user_new_status, $this->user_id);
+
+			if(mysqli_stmt_execute($stmt)){
+				return true;
+			}
+			return false;
+		} 
+	}
 	
 
 }//end product

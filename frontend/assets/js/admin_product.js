@@ -3,6 +3,8 @@
     $('#ap').addClass('active');
     $('#ad').removeClass('active');
     $('#au').removeClass('active');
+    $('#at').removeClass('active');
+    
  });
 
  // ********** nav ********** //

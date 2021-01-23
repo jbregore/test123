@@ -8,6 +8,7 @@
 		exit;
 	}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!--css-->
-	<link rel="stylesheet" type="text/css" href="assets/css/user_dash.css"></link>
+	<link rel="stylesheet" type="text/css" href="assets/css/cart.css"></link>
 
 	<!--icon-->
 	<link rel="shortcut icon" href="myIcon.ico">
@@ -40,7 +41,7 @@
 
 				<nav>
 					<ul id="menuItems">
-						<li><a href="" class="active">T-Shirts</a></li>
+						<li><a href="user-dashboard.php">T-Shirts</a></li>
 						<li><a href="">Hoodies</a></li>
 						<li><a href="">Cap</a></li>
 						<li><a href="">Settings</a></li>
@@ -48,32 +49,26 @@
 					</ul>
 				</nav>
 				<span id="cart-count">0</span>
-
-				<img src="assets/images/cart.png" width="30px" height="30px;" class="cart-icon" id="open-cart">
+				<img src="assets/images/cart.png" width="30px" height="30px;" class="cart-icon">
 
 				<img src="assets/images/menu.png" class="menu-icon" onclick="menuToggle()">
 			</div> <!--end navbar-->
 	</div><!--end header-->
 
 
-	<!----- products ------>
-	<div class="small-container" id="myProduct"> <!--start small-container-->
-		
-		<!--Products-->
+	<!-- cart html -->
+	<div class="small-container cart-page">
+
 		<div id="title-hide">
-			<h2 class="title">T-shirt Products</h2>
+			<h2 class="title">My Cart</h2>
 		</div>
 
-
-		<!-- target fetch -->
-		<div id="fetch-tshirt">
-
+		<div class="modal-body" id="fetch-cart">
 			
-		</div>
-
-	</div> <!--end small-container-->
-
-
+		</div><!-----end modal-body ------>
+		<div id="paypal-button"> </div>
+	</div>
+	
 
 	<!----- footer ------>
 	<div class="footer"> <!----- start footer ------>
@@ -117,142 +112,42 @@
 	</div> <!----- end footer ------>
 
 
-
-
-
-
-
-
-
-
-
-	<!-- cart modal -->
-	<div class="modal-container" id="modal-container" style="display:none;">
-		<div class="small-container cart-page">
-			<div class="modal-header">
-				<span id="close">&times;</span>
-				<h2 id="title-ope">My Cart</h2>
-			</div><!-----end modal-header ------>
-
-			<div class="modal-body" id="fetch-cart">
-				
-
-			</div><!-----end modal-body ------>
-		</div>
-	</div>
-
-
-
-
-	<!----- script ------>
 	<script src="assets/js/jquery-3.5.1.min.js"></script> 
 	<script src="assets/js/script.js"></script>
 	<script src="https://www.paypal.com/sdk/js?client-id=AddPIpJncddMsIOBh1Q7dof9I_XtD8AAEdHB-CZma5MFNcgL9I0TBCqv_Nl9HK-Z2-S3eGmOTFVYZU3V&disable-funding=credit,card"></script>
-	<script >
+	<script>
 		$(document).ready(function(){
-			 // ********** cart modal ********** //
+			//load session of user
+			$.ajax({
+				type: 'GET',
+				url: '../backend/api/users/session.php',
+				success: function(data){
+					$("#user_id").val(data.user_id);
+					$("#user_username").val(data.user_username);
 
-			 //trigger cart modal
-			 $(document).on('click', '#open-cart', function(){
-			 	open_cart();
-			 });//trigger cart modal
+					//load users 
+					var user_id_this = $("#user_id").val();
+					var user_idd = {user_id: user_id_this};
+					$.ajax({
+						type: 'POST',
+						url: '../backend/api/cart/cart_count.php',
+						data: JSON.stringify(user_idd),
+						success: function(data){
+							document.getElementById('cart-count').innerHTML = data.totalc.cart_num;
+							open_cart();
+						}
+					});//second ajax
+			   	}
+			});
 
-
-			 $("#close").click(function(){
-				$("#modal-container").fadeOut();
-				$('#fetch-tshirt').html('');
-				load_data();
-			 });
-
-			// load_data(); php api fetch
-			load_data();
-			function load_data(){
-				//load shirt
-				$.ajax({
-					type: 'GET',
-					url: '../backend/api/products/fetch_tshirt.php',
-					success: function(data){
-						var $target_div = $('#fetch-tshirt');
-						var tshirt_data = '<div class="row">';
-						$.each(data, function(key, value){
-							tshirt_data += '<div class="col-4">';
-							tshirt_data += '<img src="'+value.prod_photo+'" width="250px" >';
-							tshirt_data += '<h4>'+value.prod_name+'</h4>';
-							tshirt_data += '<div class="ratingg">';
-							tshirt_data += '<i class="fa fa-star"></i>';
-							tshirt_data += '<i class="fa fa-star"></i>';
-							tshirt_data += '<i class="fa fa-star"></i>';
-							tshirt_data += '<i class="fa fa-star"></i>';
-							tshirt_data += '<i class="fa fa-star-o"></i>';
-							tshirt_data += '</div>';
-							tshirt_data += '<p>Php'+value.prod_price+'.00</p>';
-							tshirt_data += '<button type="submit" class="btn" id="'+value.prod_id+'">Add to cart  <i class="fa fa-shopping-cart" ></i></button>';
-							tshirt_data += '</div>';
-						});
-						tshirt_data += '</div>';
-						$target_div.append(tshirt_data);
-
-					}//end success
-				});
-
-				//load session of user
-			    $.ajax({
-			    	type: 'GET',
-			   		url: '../backend/api/users/session.php',
-			   		success: function(data){
-			   			$("#user_id").val(data.user_id);
-			   			$("#user_username").val(data.user_username);
-
-			   			//load users 
-						var user_id_this = $("#user_id").val();
-						var user_idd = {user_id: user_id_this};
-						$.ajax({
-							type: 'POST',
-							url: '../backend/api/cart/cart_count.php',
-							data: JSON.stringify(user_idd),
-							success: function(data){
-								document.getElementById('cart-count').innerHTML = data.totalc.cart_num;
-							}
-					    });//second ajax
-			   		}
-			    });
-			}//load_data
-
-
-			//add to cart
-			$(document).on('click', '.btn', function(){
-
-				var prod_id = $(this).attr("id");
-				var user_id = $("#user_id").val();
-				var user_username = $("#user_username").val();
-
-			    var cart_info = {
-			    	prod_id: prod_id,
-				    user_id: user_id,
-				    user_username: user_username
-			    };
-
-
-			    
-			    $.ajax({
-			    	type: 'POST',
-			    	url: '../backend/api/cart/create.php',
-			    	data:JSON.stringify(cart_info),
-		    		contentType: false,
-		    		cache: false,
-		    		processData:false,
-			    	success:function(data){
-			    		//if data message == success
-			    		$('#fetch-tshirt').html('');
-			    		load_data();
-			    	},
-			    	error: function (jqXHR, exception) { 
-				      	window.alert("This product was already in your cart.");
-				    }
-			    });
-			});//end add to cart
-
+			var total_items = 0;
+			var total_price = 0;
+			var total_prod = '';
+			//load cart
 			function open_cart(){
+				total_items = 0;
+				total_price = 0;
+				total_prod = '';
 				$('#fetch-cart').html('');
 				var user_id_this = $("#user_id").val();
 				$.ajax({
@@ -260,12 +155,8 @@
 					url: '../backend/api/cart/fetch_cart.php',
 					data: {user_id:user_id_this},
 					success: function(data){
+
 			 			//append
-			 			var total_items = 0;
-			 			var total_price = 0;
-			 			var total_prod = '';
-
-
 			 			var $target_div = $('#fetch-cart');
 			 			var cart_data = '<table>';
 			 			cart_data += '<tr>';
@@ -309,10 +200,6 @@
 			 			cart_data += '<td>Php '+total_price+'.00</td>';
 			 			cart_data += '</tr>';
 
-			 			cart_data += '<tr>';
-			 			cart_data += '<td colspan="2"><div id="paypal-button"> </div></td>';
-			 			cart_data += '</tr>';
-
 			 			cart_data += '</table>';
 			 			cart_data += '</div>';
 
@@ -321,65 +208,112 @@
 
 			 			$("#modal-container").fadeIn();
 
-			 			// paypal button
-			 			paypal.Buttons({
-			 				style:{
-			 					shape:'pill'
-			 				},
-			 				createOrder:function(data, actions){
-			 					return actions.order.create({
-			 						purchase_units:[{
-			 							amount:{
-			 								value:'0.1'
-			 							}
-			 						}]
-			 					});
-			 				},
-			 				onApprove:function(data, actions){
-			 					return actions.order.capture().then(function(details){
-			 						//when it successful insert data and remove sa cart
-			 						console.log(details);
-			 						window.alert("payment done");
-
-			 						
-			 						
-			 						//tbl_transaction
-
-			 						//trans_id auto incre
-
-			 						//user_id
-			 						console.log(user_id_this);
-
-			 						//paypal_name
-			 						console.log(details.payer.name.given_name);//name
-			 						console.log(details.payer.name.surname);//surname
-
-			 						//paypal address
-			 						console.log(details.payer.address.country_code);
-
-			 						//total_prodname
-			 						console.log(total_prod);
-			 						
-			 						//total_items
-			 						console.log(total_items);
-
-			 						//trans_date
-			 						console.log(details.create_time);
-
-			 						//total_trans
-			 						console.log(total_price+".00");
-
-			 					})
-			 				},
-			 				onCancel:function(data){
-			 					//alert payment cancel
-			 					window.alert("payment cancel");
-			 				}
-			 			}).render("#paypal-button");
-
+			 			
 			 		}
 				});//second ajax
 			}
+
+			// paypal button
+			paypal.Buttons({
+				style:{
+					shape:'pill'
+				},
+				createOrder:function(data, actions){
+					return actions.order.create({
+						purchase_units:[{
+							amount:{
+								value:'0.1'
+							}
+						}]
+					});
+				},
+				onApprove:function(data, actions){
+					return actions.order.capture().then(function(details){
+			 			//when it successful insert data and remove sa cart
+			 			// console.log(details);
+			 			window.alert("payment done");
+
+
+			 			//insert tbl_transaction
+						var user_id = $("#user_id").val();
+					    var trans_info = {
+						    user_id: user_id,
+						    paypal_name: details.payer.name.given_name + " " + details.payer.name.surname,
+						    paypal_address:details.payer.address.country_code,
+						    total_prod:total_prod,
+						    total_item:total_items,
+						    trans_date:details.create_time,
+						    trans_total:total_price+".00"
+					    };
+
+
+					    $.ajax({
+					    	type: 'POST',
+					    	url: '../backend/api/transaction/create.php',
+					    	data:JSON.stringify(trans_info),
+				    		contentType: false,
+				    		cache: false,
+				    		processData:false,
+					    	success:function(data){
+					    		// console.log("gago");
+					    	},
+					    	error: function (jqXHR, exception) { 
+						      	
+						    }
+					    });
+
+					    //update tbl_product
+			 			var user_id_this = $("#user_id").val();
+			 			$.ajax({
+			 				type: 'GET',
+			 				url: '../backend/api/cart/fetch_cart.php',
+			 				data: {user_id:user_id_this},
+			 				success: function(data){
+
+			 					//update 1by1 mali sa each data ng fetch cart
+			 					$.each(data, function(key, value){
+			 						var product = {
+			 							prod_id: value.prod_id,
+			 							prod_qty: value.prod_qty
+			 						}
+			 						$.ajax({
+			 							type:'PUT',
+			 							url:'../backend/api/products/update_qty.php',
+			 							data:JSON.stringify(product),
+			 							success: function(data){
+			 								console.log("horay");
+			 							}
+			 						});
+			 					});//end each
+
+			 				}
+			 			});//second ajax
+
+
+			 			//delete from cart
+      					var user = {user_id: user_id_this};
+			 			$.ajax({
+			 				type: 'DELETE',
+			 				url: '../backend/api/cart/delete_qty.php',
+			 				data: JSON.stringify(user),
+			 				success:function(data){
+			 					console.log("gago");
+			 				}
+			 			});
+
+			 			location.reload(true);
+
+
+			 			
+
+			 		})
+				},
+				onCancel:function(data){
+			 		//alert payment cancel
+			 		window.alert("payment cancel");
+			 	}
+			}).render("#paypal-button");
+
 
 
 			//add qty to cart
@@ -468,10 +402,9 @@
 			    });
 
 			});//remove to cart
- 		});
- 	</script>
 
-
-
+		});
+	</script>
+	
  </body>
  </html>

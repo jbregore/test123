@@ -37,7 +37,7 @@
 					</ul>
 				</nav>
 				<img src="assets/images/cart.png" width="30px" height="30px;">
-				<img src="assets/images/menu.png" class="menu-icon" onclick="menuToggle()">
+				<img src="assets/images/menu.png" class="menu-icon" onclick="menuToggleAccount()">
 			</div> <!--end navbar-->
 
 			<div class="row"> <!--start row-->
@@ -201,7 +201,7 @@
 					processData:false,
 					success: function(data){
 						window.alert("Welcome " + data.user_username);
-						window.location = "user-dashboard-test.php";
+						window.location = "user-dashboard.php";
 					},
 					error: function (jqXHR, exception) { 
 						document.getElementById('login-check').innerHTML = "Account not found.";

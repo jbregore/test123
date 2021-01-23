@@ -16,7 +16,7 @@ include 'admin-header.php';
           <span>Products</span>
         </div>
         <div class="card-footer">
-          <a href="">View</a>
+          <a href="admin-product.php">View</a>
         </div>
       </div>
 
@@ -29,7 +29,7 @@ include 'admin-header.php';
           <span>Users</span>
         </div>
         <div class="card-footer">
-          <a href="">View</a>
+          <a href="admin-user.php">View</a>
         </div>
       </div>
 
@@ -38,11 +38,11 @@ include 'admin-header.php';
         <i class="fa fa-credit-card" ></i>
         </div>
         <div class="card-body">
-          <h1>200,000</h1>
+          <h1 id="total-sales"></h1>
           <span>Month Sales</span>
         </div>
         <div class="card-footer">
-          <a href="">View</a>
+          <a href="admin-transaction.php">View</a>
         </div>
       </div>
 
@@ -71,6 +71,7 @@ include 'admin-header.php';
           //no need to loop pag isa lang ang kukunin na data mula sa json array
          document.getElementById('total-products').innerHTML = data.totalp.totalp;
          document.getElementById('total-users').innerHTML = data.totalu.totalu;
+         document.getElementById('total-sales').innerHTML = data.totals.totals;
         }
       });
     }

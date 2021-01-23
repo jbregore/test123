@@ -1,48 +1,13 @@
 <?php
-
 	session_start();
-	// session_destroy();
-	// if(isset($_SESSION['user_id'])){
-	// 		//pass the json data here
-	// 		//mag query gamit ang user_id
-	// }
-	// else{
-	// 	header("Location: account.php");
-	// 	exit;
-	// }
-
-	if(isset($_POST['add'])){
-		// print_r($_POST['prod_id']);
-		if(isset($_SESSION['cart'])){
-
-			$item_array_id = array_column($_SESSION['cart'], "prod_id");
-
-			if(in_array($_POST['prod_id'], $item_array_id)){
-				echo "<script> window.alert('Product is already added in the cart.')</script>";
-				echo "<script> window.location='user-dashboard.php'</script>";
-			}
-			else{
-				$count = count($_SESSION['cart']);
-				$item_array = array(
-					'prod_id'=> $_POST['prod_id']
-				);
-				$_SESSION['cart'][$count] = $item_array;
-			}
-		}
-		else{
-			$item_array = array(
-				'prod_id'=> $_POST['prod_id']
-			);
-
-			//create new session
-			$_SESSION['cart'][0] = $item_array;
-			// print_r($_SESSION['cart']);
-		}//end else
+	if(isset($_SESSION['user_id'])){
+		
 	}
-
+	else{
+		header("Location: account.php");
+		exit;
+	}
 ?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,6 +28,9 @@
 
 </head>
 <body>
+	<input type="hidden" name="" id="user_id">
+	<input type="hidden" name="" id="user_username">
+
 	<div class="header" id="myHeader"><!--start header-->
 
 			<div class="navbar"> <!--start navbar-->
@@ -76,23 +44,12 @@
 						<li><a href="">Hoodies</a></li>
 						<li><a href="">Cap</a></li>
 						<li><a href="">Settings</a></li>
-						<li><a href="" >Logout</a></li>
+						<li><a href="logout.php" >Logout</a></li>
 					</ul>
 				</nav>
-				<!-- <span id="cart-count">0</span> -->
-				<?php
+				<span id="cart-count">0</span>
 
-				if (isset($_SESSION['cart'])){
-					$count = count($_SESSION['cart']);
-					echo "<span id='cart_count'>$count</span>";
-				}else{
-					echo "<span id='cart_count'>0</span>";
-				}
-
-				?>
-
-				
-				<img src="assets/images/cart.png" width="30px" height="30px;" class="cart-icon" id="open-cart">
+				<a href="cart.php"><img src="assets/images/cart.png" width="30px" height="30px;" class="cart-icon" id="open-cart"></a>
 
 				<img src="assets/images/menu.png" class="menu-icon" onclick="menuToggle()">
 			</div> <!--end navbar-->
@@ -169,205 +126,27 @@
 
 
 
-	<!-- cart modal -->
-	<div class="modal-container" id="modal-container" style="display:none;">
-		<div class="small-container cart-page">
-			<div class="modal-header">
-				<span id="close">&times;</span>
-				<h2 id="title-ope">My Cart</h2>
-			</div><!-----end modal-header ------>
-
-			<div class="modal-body">
-				<table>
-					<tr>
-						<th>Product</th>
-						<th>Quantity</th>
-						<th>Subtotal</th>
-					</tr>
-
-					<tr>
-						<td>
-							<div class="cart-info">
-								<img src="assets/images/products/latest-1.jpg" >
-								<div>
-									<p>HGHMNDS BPLN2</p>
-									<small>Price : Php720.00</small>
-									<br>
-									<a href="">Remove</a>
-								</div>
-							</div>
-						</td>
-						<td><input type="number" name="" value="1"></td>
-						<td>$50.00</td>
-					</tr>
-
-					<tr>
-						<td>
-							<div class="cart-info">
-								<img src="assets/images/products/latest-2.jpg" >
-								<div>
-									<p>HGHMNDS WPLN1</p>
-									<small>Price : Php720.00</small>
-									<br>
-									<a href="">Remove</a>
-								</div>
-							</div>
-						</td>
-						<td><input type="number" name="" value="1"></td>
-						<td>$50.00</td>
-					</tr>
-
-					<tr>
-						<td>
-							<div class="cart-info">
-								<img src="assets/images/products/latest-3.jpg" >
-								<div>
-									<p>HGHMNDS BPLK2</p>
-									<small>Price : Php720.00</small>
-									<br>
-									<a href="">Remove</a>
-								</div>
-							</div>
-						</td>
-						<td><input type="number" name="" value="1"></td>
-						<td>$50.00</td>
-					</tr>
-
-					<tr>
-						<td>
-							<div class="cart-info">
-								<img src="assets/images/products/latest-4.jpg">
-								<div>
-									<p>HGHMNDS WPLK1</p>
-									<small>Price : Php720.00</small>
-									<br>
-									<a href="">Remove</a>
-								</div>
-							</div>
-						</td>
-						<td><input type="number" name="" value="1"></td>
-						<td>$50.00</td>
-					</tr>
-
-					<tr>
-						<td>
-							<div class="cart-info">
-								<img src="assets/images/products/latest-5.jpg" >
-								<div>
-									<p>KALMADO BLPKN5</p>
-									<small>Price : Php700.00</small>
-									<br>
-									<a href="">Remove</a>
-								</div>
-							</div>
-						</td>
-						<td><input type="number" name="" value="1"></td>
-						<td>$50.00</td>
-					</tr>
-
-					<tr>
-						<td>
-							<div class="cart-info">
-								<img src="assets/images/products/latest-6.jpg" >
-								<div>
-									<p>KALMADO BPLW2</p>
-									<small>Price : Php700.00</small>
-									<br>
-									<a href="">Remove</a>
-								</div>
-							</div>
-						</td>
-						<td><input type="number" name="" value="1"></td>
-						<td>$50.00</td>
-					</tr>
-
-					<tr>
-						<td>
-							<div class="cart-info">
-								<img src="assets/images/products/latest-7.jpg" >
-								<div>
-									<p>KALMADO RPLN4</p>
-									<small>Price : Php700.00</small>
-									<br>
-									<a href="">Remove</a>
-								</div>
-							</div>
-						</td>
-						<td><input type="number" name="" value="1"></td>
-						<td>$50.00</td>
-					</tr>
-
-					<tr>
-						<td>
-							<div class="cart-info">
-								<img src="assets/images/products/latest-8.jpg">
-								<div>
-									<p>KALMADO NPLK3</p>
-									<small>Price : Php700.00</small>
-									<br>
-									<a href="">Remove</a>
-								</div>
-							</div>
-						</td>
-						<td><input type="number" name="" value="1"></td>
-						<td>$50.00</td>
-					</tr>
-					
-				</table>
-
-
-				<div class="total-price">
-					<table>
-						<tr>
-							<td>Subtotal</td>
-							<td>Php99999.00</td>
-						</tr>
-						<tr>
-							<td>Price (5) items</td>
-							<td>Php99999.00</td>
-						</tr>
-						<tr>
-							<td>Total</td>
-							<td>Php99999.00</td>
-						</tr>
-					</table>
-				</div>
-
-			</div><!-----end modal-body ------>
-		</div>
-	</div>
-
 
 
 
 	<!----- script ------>
 	<script src="assets/js/jquery-3.5.1.min.js"></script> 
 	<script src="assets/js/script.js"></script>
+	<script src="https://www.paypal.com/sdk/js?client-id=AddPIpJncddMsIOBh1Q7dof9I_XtD8AAEdHB-CZma5MFNcgL9I0TBCqv_Nl9HK-Z2-S3eGmOTFVYZU3V&disable-funding=credit,card"></script>
 	<script >
 		$(document).ready(function(){
-			 // ********** cart modal ********** //
-			 //trigger cart modal
-			 $(document).on('click', '#open-cart', function(){
-			   	$("#modal-container").fadeIn();
-			 });//trigger cart modal
-
-
-			 $("#close").click(function(){
-				$("#modal-container").fadeOut();
-			 });
 
 			// load_data(); php api fetch
 			load_data();
 			function load_data(){
+				//load shirt
 				$.ajax({
 					type: 'GET',
 					url: '../backend/api/products/fetch_tshirt.php',
 					success: function(data){
 						var $target_div = $('#fetch-tshirt');
-						console.log(data);
 						var tshirt_data = '<div class="row">';
 						$.each(data, function(key, value){
-							tshirt_data += '<form action="user-dashboard.php" method="POST">';
 							tshirt_data += '<div class="col-4">';
 							tshirt_data += '<img src="'+value.prod_photo+'" width="250px" >';
 							tshirt_data += '<h4>'+value.prod_name+'</h4>';
@@ -379,10 +158,8 @@
 							tshirt_data += '<i class="fa fa-star-o"></i>';
 							tshirt_data += '</div>';
 							tshirt_data += '<p>Php'+value.prod_price+'.00</p>';
-							tshirt_data += '<button type="submit" class="btn" name="add">Add to cart  <i class="fa fa-shopping-cart" ></i></button>';
-							tshirt_data += '<input type="hidden" name="prod_id" value="'+value.prod_id+'">';
+							tshirt_data += '<button type="submit" class="btn" id="'+value.prod_id+'">Add to cart  <i class="fa fa-shopping-cart" ></i></button>';
 							tshirt_data += '</div>';
-							tshirt_data += '</form>';
 						});
 						tshirt_data += '</div>';
 						$target_div.append(tshirt_data);
@@ -390,11 +167,73 @@
 					}//end success
 				});
 
+				//load session of user
+			    $.ajax({
+			    	type: 'GET',
+			   		url: '../backend/api/users/session.php',
+			   		success: function(data){
+			   			$("#user_id").val(data.user_id);
+			   			$("#user_username").val(data.user_username);
 
+			   			//load users 
+						var user_id_this = $("#user_id").val();
+						var user_idd = {user_id: user_id_this};
+						$.ajax({
+							type: 'POST',
+							url: '../backend/api/cart/cart_count.php',
+							data: JSON.stringify(user_idd),
+							success: function(data){
+								document.getElementById('cart-count').innerHTML = data.totalc.cart_num;
+							}
+					    });//second ajax
+			   		}
+			    });
 			}//load_data
+
+
+			//add to cart
+			$(document).on('click', '.btn', function(){
+
+				var prod_id = $(this).attr("id");
+				var user_id = $("#user_id").val();
+				var user_username = $("#user_username").val();
+
+			    var cart_info = {
+			    	prod_id: prod_id,
+				    user_id: user_id,
+				    user_username: user_username
+			    };
+
+
+			    
+			    $.ajax({
+			    	type: 'POST',
+			    	url: '../backend/api/cart/create.php',
+			    	data:JSON.stringify(cart_info),
+		    		contentType: false,
+		    		cache: false,
+		    		processData:false,
+			    	success:function(data){
+			    		//if data message == success
+			    		$('#fetch-tshirt').html('');
+			    		load_data();
+			    	},
+			    	error: function (jqXHR, exception) { 
+				      	window.alert("This product was already in your cart.");
+				    }
+			    });
+			});//end add to cart
+
+		
+
+
+			
 
 
  		});
  	</script>
+
+
+
  </body>
  </html>

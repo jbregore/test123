@@ -13,6 +13,15 @@ function menuToggle() {
 		document.getElementById('title-hide').style.display = "block";
 	}
 }
+
+function menuToggleAccount() {
+	if(menuItems.style.maxHeight == "0px"){
+		menuItems.style.maxHeight = "200px";
+	}
+	else{
+		menuItems.style.maxHeight = "0px";
+	}
+}
  
 //action.html toggle form
 var LoginForm = document.getElementById("LoginForm");
