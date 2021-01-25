@@ -60,7 +60,7 @@ body{
 
 
 
-/* right bar */
+/************** right bar **************/
 .right-bar{
   width: 100px;
   display: block;
@@ -110,7 +110,7 @@ h2{
   font-weight: 500;
 }
 
-/* cards */
+/************** cards **************/
 .row{
   display: flex;
   align-items: center;
@@ -177,12 +177,14 @@ h2{
 
 /************** admin products **************/
 
-/* table */
+/************** table **************/
 #prod-table{
   height: 500px;
   overflow: auto;
   margin: 0 30px;
 }
+
+
 
 .btn{
   margin-left: 30px;

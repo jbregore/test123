@@ -12,7 +12,7 @@ body{
 	font-family: 'Poppins', sans-serif;
 }
 
-/*------ nav ------*/
+/************** nav **************/
 .navbar{
 	display: flex;
 	align-items: center;
@@ -85,7 +85,7 @@ nav ul li a:hover:after {
 }
 
 
-/*------ container ------*/
+/************** container **************/
 .container p{
 	color: white;
 	font-size: 24px;
@@ -192,7 +192,7 @@ nav ul li a:hover:after {
 
 
 
-/*------ products ------*/
+/************** products **************/
 .small-container{
 	max-width: 1080px;
 	margin: auto;
@@ -232,7 +232,7 @@ h4{
 	color: #ff523b;
 }
 
-/*------ offer ------*/
+/************** offer**************/
 .offer{
 	margin-top: 80px;
 	padding: 30px 0;
@@ -267,7 +267,7 @@ h4{
 
 
 
-/*------ testimonial ------*/
+/************** testimonial **************/
 .testimonial{
 	padding-top: 60px;
 	padding-bottom: 60px;
@@ -310,7 +310,7 @@ h4{
 
 
 
-/*------ about-us ------*/
+/************** about us **************/
 .about-us{
 	background: #000;
 	color: #8a8a8a;
@@ -326,7 +326,7 @@ h4{
 
 
 
-/*------ why-us ------*/
+/**************  why us **************/
 .why-us{
 	font-size: 14px;
 	padding: 40px 0 80px;
@@ -351,7 +351,7 @@ h4{
 
 
 
-/*------ the-team------*/
+/************** the team **************/
 .the-team{
 	padding: 40px 0 80px;
 }
@@ -388,7 +388,7 @@ h4{
 }
 
 
-/*------ contact-us ------*/
+/************** contact us **************/
 .contact-us{
 	padding: 30px 0;
 	padding-bottom: 50px;
@@ -484,7 +484,7 @@ input[type=submit]:hover{
 
 
 
-/*------ footer ------*/
+/************** footer **************/
 .footer{
 	background: #000;
 	color: #8a8a8a;
@@ -578,8 +578,8 @@ ul{
 
 
 
-/*------ account.html ------*/
-/*------ form-container ------*/
+/************** account.html **************/
+/************** form container **************/
 .form-container{
 	background-color:rgba(0, 0, 0, 0.3);
 	border-radius: 20px;
@@ -670,7 +670,7 @@ form a{
 	font-size: 16px;
 }
 
-/*------ Responsive ------*/
+/************** responsive **************/
 
 @media only screen and (max-width: 800px){
 	*{
@@ -741,7 +741,7 @@ form a{
 		margin-top: 20px;
 	}
 
-	/* account.html */
+	/************** account.html **************/
 	.form-container{
 		width: 80%;
 		margin: auto;

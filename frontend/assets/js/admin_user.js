@@ -4,7 +4,8 @@ $(document).ready(function(){
     $('#au').addClass('active');
     $('#ad').removeClass('active');
     $('#ap').removeClass('active');
-    $('#at').removeClass('active');
+	$('#at').removeClass('active');
+	$('#af').removeClass('active');
 });
 
 // ********** nav ********** //

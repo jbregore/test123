@@ -42,6 +42,29 @@ class Product{
 		return $stmt;
 	}
 
+	// fetch all  hoodie
+	public function fetch_hoodies(){
+		// Create query
+		$query = "SELECT * FROM $this->table_name WHERE prod_category = 'hoodie' AND prod_status = 'available' AND prod_qty != 0 ORDER BY prod_brand";
+
+		//execute query
+		$stmt = $this->conn->query($query);
+
+		return $stmt;
+	}
+
+	// fetch all  other
+	public function fetch_other(){
+		// Create query
+		$query = "SELECT * FROM $this->table_name WHERE prod_category = 'other' AND prod_status = 'available' AND prod_qty != 0 ORDER BY prod_brand";
+
+		//execute query
+		$stmt = $this->conn->query($query);
+
+		return $stmt;
+	}
+
+	
 	// get single product
 	public function fetch_single() {
         // Create query

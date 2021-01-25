@@ -1,23 +1,31 @@
-$(document).ready(function(){
-    //change class
+$(document).ready(function () {
+	//change class
+	$('#at').addClass('active');
+	$('#ad').removeClass('active');
+	$('#ap').removeClass('active');
+	$('#au').removeClass('active');
+	$('#af').removeClass('active');
 
-    $('#at').addClass('active');
-    $('#ad').removeClass('active');
-    $('#ap').removeClass('active');
-    $('#au').removeClass('active');
+	
+
+	// ********** nav ********** //
+	$("#admin-toggle").click(function () {
+		$(".admin-nav").toggle(1000);
+	});
+
+
+	// ********** fetch ********** //
+	load_data();
+
+
 });
 
-// ********** nav ********** //
-$("#admin-toggle").click(function(){
-	$(".admin-nav").toggle(1000);
-});
 
-load_data();
-function load_data(){
+function load_data() {
 	$.ajax({
 		type: 'GET',
 		url: '../backend/api/transaction/fetch.php',
-		success: function(data){
+		success: function (data) {
 			console.log(data);
 			var $trans = $('#prod-table');
 			var trans_data = '<table class="content-table">';
@@ -33,20 +41,20 @@ function load_data(){
 			trans_data += '</thead>';
 			trans_data += '<tbody>';
 
-			$.each(data, function(key, value){
-   				trans_data += '<tr>';
-   				trans_data += '<td>'+value.paypal_name+'</td>';
-   				trans_data += '<td>'+value.paypal_address+'</td>';
-   				trans_data += '<td>'+value.total_prod+'</td>';
-   				trans_data += '<td>'+value.total_item+'</td>';
-   				trans_data += '<td>'+value.trans_date+'</td>';
-   				trans_data += '<td>'+value.trans_total+'</td>';
-   				trans_data += '</tr>';
+			$.each(data, function (key, value) {
+				trans_data += '<tr>';
+				trans_data += '<td>' + value.paypal_name + '</td>';
+				trans_data += '<td>' + value.paypal_address + '</td>';
+				trans_data += '<td>' + value.total_prod + '</td>';
+				trans_data += '<td>' + value.total_item + '</td>';
+				trans_data += '<td>' + value.trans_date + '</td>';
+				trans_data += '<td>' + value.trans_total + '</td>';
+				trans_data += '</tr>';
 
-   			});
+			});
 
-   			trans_data += '</tbody>';
-   			trans_data += '</table>';
+			trans_data += '</tbody>';
+			trans_data += '</table>';
 			$trans.append(trans_data);
 		}
 	});

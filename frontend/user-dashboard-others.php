@@ -42,10 +42,10 @@
 		<div class="small-container" id="myProduct"> 
 			
 			<div id="title-hide">
-				<h2 class="title">T-shirt Products</h2>
+				<h2 class="title">Other Products</h2>
 			</div>
 			
-			<div id="fetch-tshirt">
+			<div id="fetch-other">
 			</div>
 
 		</div> 
@@ -61,7 +61,7 @@
 		<script src="assets/js/jquery-3.5.1.min.js"></script> 
 		<script src="assets/js/script.js"></script>
 		<script src="https://www.paypal.com/sdk/js?client-id=AddPIpJncddMsIOBh1Q7dof9I_XtD8AAEdHB-CZma5MFNcgL9I0TBCqv_Nl9HK-Z2-S3eGmOTFVYZU3V&disable-funding=credit,card"></script>
-		<script src="assets/js/user_dashboard.js"></script>
+		<script src="assets/js/user_dashboard_others.js"></script>
 
 
 

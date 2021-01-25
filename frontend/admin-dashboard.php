@@ -6,7 +6,7 @@ include 'admin-header.php';
 
 <main>
     <h2>Dashboard</h2>
-    <div class="row"> <!--start row-->
+    <div class="row"> 
       <div class="col-3">
         <div class="card-total">
         <i class="fa fa-product-hunt"></i>
@@ -46,7 +46,7 @@ include 'admin-header.php';
         </div>
       </div>
 
-    </div><!--end row-->
+    </div>
   </main>
   
 
@@ -54,34 +54,6 @@ include 'admin-header.php';
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-  $(document).ready(function(){
-
-    //change class
-    $('#ap').removeClass('active');
-    $('#ad').addClass('active');
-
-    load_data();
-
-    function load_data(){
-      $.ajax({
-        type: 'GET',
-        url: '../backend/api/admin_dashboard/fetch.php',
-        success: function(data){
-          //no need to loop pag isa lang ang kukunin na data mula sa json array
-         document.getElementById('total-products').innerHTML = data.totalp.totalp;
-         document.getElementById('total-users').innerHTML = data.totalu.totalu;
-         document.getElementById('total-sales').innerHTML = data.totals.totals;
-        }
-      });
-    }
-
-
-    $("#admin-toggle").click(function(){
-      $(".admin-nav").toggle(1000);
-    });
-
-  });
-</script>
+<script src="assets/js/admin_dashboard.js"></script>
 
 </html>

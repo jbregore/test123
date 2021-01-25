@@ -12,7 +12,7 @@ body{
 	font-family: 'Poppins', sans-serif;
 }
 
-/*------ nav ------*/
+/************** nav **************/
 .navbar{
 	display: flex;
 	align-items: center;
@@ -93,7 +93,7 @@ nav ul li a:hover:after {
 }
 
 
-/*------ container ------*/
+/************** container **************/
 .container p{
 	color: white;
 	font-size: 24px;
@@ -238,7 +238,7 @@ nav ul li a:hover:after {
 }
 
 
-/*------ products ------*/
+/************** products **************/
 .small-container{
 	max-width: 1080px;
 	margin: auto;
@@ -290,7 +290,7 @@ h4{
 
 
 
-/*------ footer ------*/
+/************** footer **************/
 .footer{
 	background: #000;
 	color: #8a8a8a;
@@ -382,7 +382,7 @@ ul{
 }
 
 
-/**********cart css**********/
+/************** cart css **************/
 	
 .cart-page{
 	margin: 20px auto;
@@ -453,7 +453,55 @@ th:last-child{
 }
 
 /************** modal products **************/
-.modal-container{
+
+.cart-page{
+	background-color: white;
+	width: 1100px;
+	max-width: 100%;
+	border-radius: 7px;
+	overflow: auto;
+	height: 650px;
+}
+
+h2{
+	margin-left: 30px;
+	padding-bottom: 10px;
+	color: #777;
+	font-weight: 500;
+	font-size: 20px;
+}
+
+
+/************** container **************/
+.container p{
+	color: white;
+	font-size: 24px;
+}
+
+.container{
+	max-width: 1300px;
+	margin: auto;
+	padding-bottom: 50px;
+}
+
+.row{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-around;
+
+}
+
+.col-2{
+	flex-basis: 50%;
+	min-width: 500px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+
+
+.modal-containerr{
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -466,20 +514,19 @@ th:last-child{
 
 }
 
-.cart-page{
+.modal{
 	background-color: white;
-	width: 1100px;
+	width: 480px;
 	max-width: 100%;
 	border-radius: 7px;
-	height: 650px;
-	overflow: auto;
-	height: 650px;
+	text-align: center;
+	height: 480px;
 }
 
 #close {
 	color: white;
 	float: right;
-	font-size: 28px;
+	font-size: 22px;
 	font-weight: bold;
 }
 
@@ -492,32 +539,80 @@ th:last-child{
 
 .modal-header {
 	padding: 10px;
+	padding-bottom: 50px;
 	background-color: #3E3B3B;
-	height: 70px;
+	height: 50px;
+	border-top-right-radius: 7px;
 	border-top-left-radius: 7px;
-	position: -webkit-sticky;
-	position: sticky;
-	top: 0;
 }
 
 .modal-header h2{
 	float: left;
 	color: white;
 	padding-top: 10px;
-	margin-left: 30px;
-	padding-bottom: 10px;
-	color: #fff;
-	font-weight: 500;
-
 }
 
-.modal-body{
-	padding: 20px 30px;
+.rating {
+	padding-top: 26px;
+	padding-bottom: 15px;
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 5px;
+.rating .fa{
+	/*color: #ff523b;*/
+	color: #D6D1D1;
+	font-size: 40px;
+}	
+
+.rating .fa:hover{
+	cursor: pointer;
+}
+
+textarea:focus{
+	outline: none;
+}
+textarea{
+	padding: 10px 20px;
+	color: #555;
+	margin: 6px 0;
+	border-radius: 5px;
+	font-size: 14px;
+	resize: none;
+	overflow: auto;
+	width: 100%;
+	border: none;
+	border: 1px solid #ccc;
+	font-family: 'Poppins', sans-serif;
+}
+
+.message-area{
+	padding: 0 20px;
+}	
+
+.message-area p {
+	color: #555;
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+
+#feedback-btn{
+	margin: 0 20px;
+	display: inline-block;
+	background: #ff523b;
+	color: white;
+	padding: 8px 30px;
+	border-radius: 30px;
+	font-size:16px;
+	text-decoration: none;
+	transition: background 0.5s;
+	cursor: pointer;
+	border: none;
+	width: 90%;
+	height: 40px;
+	outline: none;
+}
+
+#feedback-btn:hover{
+	background: #563434;
 }
 
 
@@ -525,10 +620,7 @@ th:last-child{
 
 
 
-
-
-
-/*------ Responsive ------*/
+/************** responsive **************/
 
 @media only screen and (max-width: 800px){
 	*{
@@ -613,6 +705,34 @@ th:last-child{
 	}
 	#paypal-button{
 		margin-right: -14px;
+	}
+
+	.row{
+		text-align: center;
+	}
+
+	.modal{
+		background-color: white;
+		max-width: 100%;
+		border-radius: 7px;
+		text-align: center;
+		margin-right: 30px;
+		margin-left: 30px;
+	}
+
+	.modal-header h2{
+		font-size: 16px;
+		margin-left: 10px;
+	}
+
+	#close {
+		font-size: 20px;
+	}
+
+	.rating .fa,
+	.ratingg .fa{
+		color: #ff523b;
+		font-size: 30px;
 	}
 
 }

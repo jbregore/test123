@@ -3,6 +3,7 @@ include 'admin-header.php';
 ?>
 
 
+<!----- ***************** main  ***************** ------>
 <main>
 	<h2>Products</h2>
 	<div id="prod-table">  
@@ -16,15 +17,14 @@ include 'admin-header.php';
 
 
 
-<!-- ********************************************************************************************** -->
-<!-- modal add product -->
+<!----- ***************** modal  ***************** ------>
 <div class="modal-container" id="modal-container" style="display: none;">
 	<div class="modal">
 		<form method="POST" id="product-form" enctype="multipart/form-data">
 			<div class="modal-header">
 				<span id="close">&times;</span>
 				<h2 id="title-ope">Add Product</h2>
-			</div><!-----end modal-header ------>
+			</div>
 
 			<div class="modal-body">
 				<div class="col-70">
@@ -32,7 +32,7 @@ include 'admin-header.php';
 					<select name="prod-category" id="sel-prod-category">
 						<option value="t-shirt" selected>T-shirt</option>
 						<option value="hoodie">Hoodie</option>
-						<option value="cap">Cap</option>
+						<option value="other">Cap</option>
 					</select><br>
 
 					<label for="prod-brand">Brand :</label>
@@ -57,7 +57,7 @@ include 'admin-header.php';
 						<option value="available" selected>Available</option>
 						<option value="navailable">Not Available</option>
 					</select><br>
-				</div><!-----end col-70 ------>
+				</div>
 
 				<div class="col-30">
 					<img id="img-prod">
@@ -68,12 +68,14 @@ include 'admin-header.php';
 					<button type="submit" class="add-btn" name="form-action" id="form-action">
 						<i class="fa fa-plus-circle"></i>
 					Add Product</button>
-				</div><!-----end col-30 ------>
-			</div><!-----end modal-body ------>
+				</div>
+			</div>
 		</form>
-	</div><!-----end modal------>
+	</div>
 </div>
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+
+<!----- ***************** script  ***************** ------>
 <script src="assets/js/jquery-3.5.1.min.js"></script>
 <script src="assets/js/admin_product.js"></script>

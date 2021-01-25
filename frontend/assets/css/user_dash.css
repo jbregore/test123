@@ -12,7 +12,7 @@ body{
 	font-family: 'Poppins', sans-serif;
 }
 
-/*------ nav ------*/
+/************** nav **************/
 .navbar{
 	display: flex;
 	align-items: center;
@@ -93,7 +93,7 @@ nav ul li a:hover:after {
 }
 
 
-/*------ container ------*/
+/************** container **************/
 .container p{
 	color: white;
 	font-size: 24px;
@@ -237,7 +237,7 @@ nav ul li a:hover:after {
 }
 
 
-/*------ products ------*/
+/************** products **************/
 .small-container{
 	max-width: 1080px;
 	margin: auto;
@@ -285,7 +285,7 @@ h4{
 
 
 
-/*------ footer ------*/
+/************** footer **************/
 .footer{
 	background: #000;
 	color: #8a8a8a;
@@ -377,7 +377,7 @@ ul{
 }
 
 
-/**********cart css**********/
+/************** cart css **************/
 	
 .cart-page{
 	margin: 80px auto;
@@ -516,7 +516,7 @@ th:last-child{
 
 
 
-/*------ Responsive ------*/
+/************** responsive **************/
 
 @media only screen and (max-width: 800px){
 	*{
