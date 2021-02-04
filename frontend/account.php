@@ -35,7 +35,7 @@
 						<li><a href="index.php#myProduct">Products</a></li>
 						<li><a href="index.php#myAbout">About</a></li>
 						<li><a href="index.php#myContact">Contact</a></li>
-						<li><a href="account.html" class="active">Account</a></li>
+						<li><a href="account.php" class="active">Account</a></li>
 					</ul>
 				</nav>
 				<img src="assets/images/cart.png" width="30px" height="30px;">

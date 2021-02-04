@@ -5,3 +5,7 @@ jonathan hipolito
 john benedict regore
 - sb-ylgpd4822611@personal.example.com
 - jbregore123
+
+john patrick martinez
+-sb-3avkn4815567@personal.example.com
+-patrick123

@@ -346,14 +346,14 @@
 					</div> 
 
 					<div class="col-3"> 
-						<img src="assets/images/the-team-2.jpg">
-						<h3>Raphael Abejero</h3>
+						<img src="assets/images/the-team-3.jpg">
+						<h3>John Patrick Martinez</h3>
 						<p>Developer</p>
 					</div>
 
 					<div class="col-3"> 
-						<img src="assets/images/the-team-3.jpg">
-						<h3>John Patrick Martinez</h3>
+						<img src="assets/images/the-team-2.jpg">
+						<h3>Raphael Abejero</h3>
 						<p>Tester</p>
 					</div> 
 				</div> 

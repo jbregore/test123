@@ -101,9 +101,11 @@ $(document).ready(function(){
 				});
 
 
+				document.getElementById('cart-count').innerHTML = "0";
 				$("#paypal-button").css("display", "none");
 				$("#modal-containerr").fadeIn();
-				 			
+				
+				load_cart(); 			
 
 			});// location.reload(true);
 
@@ -191,7 +193,7 @@ $(document).ready(function(){
 			cache: false,
 			processData:false,
 			success:function(data){
-				open_cart();
+				load_cart();
 			},
 			error: function (jqXHR, exception) { 
 				// window.alert("This product was already in your cart.");	      	

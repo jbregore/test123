@@ -1,437 +1,542 @@
-
-*{
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
 }
 
-body{
-  font-family: 'Poppins', sans-serif;
+body {
+    font-family: 'Poppins', sans-serif;
 }
-
 
 
 /************** admin dashboard **************/
 
-.sidebar{
-  position: fixed;
-  width: 240px;
-  left: -0;
-  height: 100%;
-  background: #1e1e1e;
-  transition: all .5s ease;
+.sidebar {
+    position: fixed;
+    width: 240px;
+    left: -0;
+    height: 100%;
+    background: #1e1e1e;
+    transition: all .5s ease;
 }
 
-.sidebar header{
-  font-size: 28px;
-  color: white;
-  line-height: 70px;
-  text-align: center;
-  background: #1b1b1b;
-  user-select: none;
-  font-family: "Times New Roman", Times, serif;
+.sidebar header {
+    font-size: 28px;
+    color: white;
+    line-height: 70px;
+    text-align: center;
+    background: #1b1b1b;
+    user-select: none;
+    font-family: "Times New Roman", Times, serif;
 }
 
-.sidebar a{
-  display: block;
-  height: 65px;
-  width: 100%;
-  color: white;
-  line-height: 65px;
-  padding-left: 30px;
-  box-sizing: border-box;
-  border-left: 5px solid transparent;
-  transition: all .5s ease;
+.sidebar a {
+    display: block;
+    height: 65px;
+    width: 100%;
+    color: white;
+    line-height: 65px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    border-left: 5px solid transparent;
+    transition: all .5s ease;
 }
 
-.sidebar a.active,.sidebar a:hover{
-  border-left: 5px solid #b93632;
-  color: #ff523b;
+.sidebar a.active,
+.sidebar a:hover {
+    border-left: 5px solid #b93632;
+    color: #ff523b;
 }
 
-.sidebar a i{
-  font-size: 23px;
-  margin-right: 16px;
+.sidebar a i {
+    font-size: 23px;
+    margin-right: 16px;
 }
 
-.sidebar a span{
-  letter-spacing: 1px;
+.sidebar a span {
+    letter-spacing: 1px;
 }
-
 
 
 /************** right bar **************/
-.right-bar{
-  width: 100px;
-  display: block;
-  right: 0;
-  position: fixed;
-  top: 20px;
-  text-align: center;
+
+.right-bar {
+    width: 100px;
+    display: block;
+    right: 0;
+    position: fixed;
+    top: 20px;
+    text-align: center;
 }
 
-.right-bar img{
-  border-radius: 50%;
-  cursor: pointer;
+#settings {
+    color: #777;
 }
 
-.admin-nav{
-  height: 100px;
-  display: none;
+#settings:hover {
+    cursor: pointer;
+    color: #ff523b;
 }
 
-.admin-nav ul{
-  line-height: 26px;
-  list-style: none;
-  padding: 10px 0;
+.right-bar img {
+    border-radius: 50%;
+    cursor: pointer;
 }
 
-.admin-nav ul li a{
-  text-decoration: none;
-  font-size: 16px;
-  color: #777;
-  padding: 10px 0;
+.admin-nav {
+    height: 100px;
+    display: none;
 }
 
-.admin-nav a:hover{
-  color: #ff523b;
+.admin-nav ul {
+    line-height: 26px;
+    list-style: none;
+    padding: 10px 0;
+}
+
+.admin-nav ul li a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #777;
+    padding: 10px 0;
+}
+
+.admin-nav a:hover {
+    color: #ff523b;
+}
+
+main {
+    padding-top: 125px;
+    margin-left: 240px;
+}
+
+.container-canvas {
+    margin-left: 260px;
+    margin-right: 30px;
+    ;
+}
+
+h2 {
+    margin-left: 30px;
+    padding-bottom: 10px;
+    color: #777;
+    font-weight: 500;
 }
 
 
-main{
-  padding-top: 125px;
-  margin-left: 240px;
+/************** modal settings **************/
+
+.modal-container-settings {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-h2{
-  margin-left: 30px;
-  padding-bottom: 10px;
-  color: #777;
-  font-weight: 500;
+.modal-settings {
+    background-color: white;
+    width: 480px;
+    max-width: 100%;
+    border-radius: 7px;
+    text-align: center;
+    height: 360px;
 }
+
+.modal-body-settings {
+    margin-top: 20px;
+}
+
+#close-settings {
+    color: white;
+    float: right;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#close-settings:hover,
+#close-settings:focus {
+    color: #ff523b;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header-settings {
+    padding: 10px;
+    padding-bottom: 30px;
+    background-color: #3E3B3B;
+    height: 30px;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+
+.modal-header-settings h2 {
+    float: left;
+    color: white;
+    padding-top: 10px;
+    margin-left: 20px;
+}
+
+.modal-body-settings input[type=password] {
+    width: 90%;
+    margin: 3px 10px;
+    padding: 5px;
+    outline: none;
+    font-size: 14px;
+    color: #777;
+}
+
+.modal-body-settings label {
+    float: left;
+    margin-left: 20px;
+    color: #555;
+}
+
+#pass-btn {
+    margin: 20px 20px;
+    display: inline-block;
+    background: #ff523b;
+    color: white;
+    padding: 8px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background 0.5s;
+    cursor: pointer;
+    border: none;
+    width: 90%;
+    height: 40px;
+    outline: none;
+    text-align: center;
+}
+
+#pass-btn:hover {
+    background: #563434;
+}
+
 
 /************** cards **************/
-.row{
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-around; 
+
+.row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-.col-3{
-  width: 290px;
-  margin-bottom: 30px;
-  box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  height: 150px;
-  text-align: center;
-  color: white;
+.col-3 {
+    width: 290px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    height: 150px;
+    text-align: center;
+    color: white;
 }
 
-.col-3:nth-child(1){
-  background-color: #337ab7;
-  border-color: #3498db;
+.col-3:nth-child(1) {
+    background-color: #337ab7;
+    border-color: #3498db;
 }
 
-.col-3:nth-child(2){
-  background-color: #e74c3c;
-  border-color: #e74c3c;
+.col-3:nth-child(2) {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
 }
 
-.col-3:nth-child(3){
-  background-color: #f39c12;
-  border-color: #27ae60;
+.col-3:nth-child(3) {
+    background-color: #f39c12;
+    border-color: #27ae60;
 }
 
-
-.col-3 i{
-  font-size: 66px;
-  float: left;
-  padding:  30px 30px;
+.col-3 i {
+    font-size: 66px;
+    float: left;
+    padding: 30px 30px;
 }
 
-.card-total{
-  margin-top: 15px;
+.card-total {
+    margin-top: 15px;
 }
 
-.card-body{
-  margin-top: 25px;
-  font-size: 16px;
+.card-body {
+    margin-top: 25px;
+    font-size: 16px;
 }
 
-.card-footer{
-  margin-top: 20px;
+.card-footer {
+    margin-top: 20px;
 }
 
-.card-footer a{
-  color: #fff;
+.card-footer a {
+    color: #fff;
 }
 
-.card-footer a:hover{
-  color: #ff523b;
+.card-footer a:hover {
+    color: #ff523b;
 }
-
-
-
 
 
 /************** admin products **************/
 
+
 /************** table **************/
-#prod-table{
-  height: 500px;
-  overflow: auto;
-  margin: 0 30px;
+
+#prod-table {
+    height: 500px;
+    overflow: auto;
+    margin: 0 30px;
 }
 
-
-
-.btn{
-  margin-left: 30px;
-  margin-top: 10px;
-  width: 120px;
-  display: inline-block;
-  background: #337ab7;
-  color: white;
-  padding: 8px 10px;
-  font-size: 14px;
-  border: none;
-  cursor: pointer;
+.btn {
+    margin-left: 30px;
+    margin-top: 10px;
+    width: 120px;
+    display: inline-block;
+    background: #337ab7;
+    color: white;
+    padding: 8px 10px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
 }
 
-.btn:focus{
-  outline: none;
+.btn:focus {
+    outline: none;
 }
 
-.btn i{
-  font-size: 14px;
-  padding: 3px;
+.btn i {
+    font-size: 14px;
+    padding: 3px;
 }
 
-.view-btn{
-  display: inline-block;
-  background: #27ae60;
-  color: white;
-  padding: 5px 8px;
-  font-size: 14px;
-  border: none;
-  cursor: pointer;
+.view-btn {
+    display: inline-block;
+    background: #27ae60;
+    color: white;
+    padding: 5px 8px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
 }
 
-.edit-btn{
-  display: inline-block;
-  background: #f39c12;
-  color: white;
-  padding: 5px 8px;
-  font-size: 14px;
-  border: none;
-  cursor: pointer;
-  margin-right: 7px;
+.edit-btn {
+    display: inline-block;
+    background: #f39c12;
+    color: white;
+    padding: 5px 8px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    margin-right: 7px;
 }
 
-.del-btn{
-  display: inline-block;
-  background: #ff523b;
-  color: white;
-  padding: 5px 8px;
-  font-size: 14px;
-  border: none;
-  cursor: pointer;
+.del-btn {
+    display: inline-block;
+    background: #ff523b;
+    color: white;
+    padding: 5px 8px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
 }
 
-.content-table{
-  font-size: 16px;
-  border-collapse: collapse;
+.content-table {
+    font-size: 16px;
+    border-collapse: collapse;
 }
 
 .content-table table {
-  border-spacing: 0;
-  border: 1px solid #ddd;
+    border-spacing: 0;
+    border: 1px solid #ddd;
 }
 
 .content-table th,
 .content-table td {
-  text-align: left;
-  padding: 15px 20px;
-  min-width: 130px;
+    text-align: left;
+    padding: 15px 20px;
+    min-width: 130px;
 }
 
-.content-table th:last-of-type{
-  min-width: 200px;
+.content-table th:last-of-type {
+    min-width: 200px;
 }
 
-.content-table th{
-  font-weight: 500;
+.content-table th {
+    font-weight: 500;
 }
 
-.content-table td{
-  color: #777;
+.content-table td {
+    color: #777;
 }
 
-.content-table th{
-  position: sticky;
-  top: 0;
-  background-color: #3E3B3B;
-  color: white;
-  text-align: left;
+.content-table th {
+    position: sticky;
+    top: 0;
+    background-color: #3E3B3B;
+    color: white;
+    text-align: left;
 }
 
-.content-table tbody tr{
-  border-bottom: 1px solid #dddddd;
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
 }
 
-.content-table tbody tr:nth-child(even){
-  background-color: #f3f3f3;
+.content-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
 }
 
 .content-table tbody tr:last-of-type {
-  border-bottom: 1px solid #777;
+    border-bottom: 1px solid #777;
 }
 
 
 /************** modal products **************/
-.modal-container{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0,0,0,0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.modal{
-  background-color: white;
-  width: 800px;
-  max-width: 100%;
-  border-radius: 7px;
-  text-align: center;
-  height: 530px;
+.modal {
+    background-color: white;
+    width: 800px;
+    max-width: 100%;
+    border-radius: 7px;
+    text-align: center;
+    height: 530px;
 }
 
 #close {
-  color: white;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 #close:hover,
 #close:focus {
-  color: #ff523b;
-  text-decoration: none;
-  cursor: pointer;
+    color: #ff523b;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .modal-header {
-  padding: 10px;
-  background-color: #3E3B3B;
-  height: 50px;
-  border-top-right-radius: 7px;
-  border-top-left-radius: 7px;
+    padding: 10px;
+    background-color: #3E3B3B;
+    height: 50px;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
 }
 
-.modal-header h2{
-  float: left;
-  color: white;
-  padding-top: 10px;
-  margin-left: 20px;
+.modal-header h2 {
+    float: left;
+    color: white;
+    padding-top: 10px;
+    margin-left: 20px;
 }
 
-.modal-body{
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-around;
+.modal-body {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-.col-70{
-  flex-basis: 60%;
-  text-align: left;
-  padding-top: 30px;
-  padding-left: 30px;
+.col-70 {
+    flex-basis: 60%;
+    text-align: left;
+    padding-top: 30px;
+    padding-left: 30px;
 }
 
-.col-70 label{
-  color: #4A4949;
-  font-size: 16px;
-  flex-basis: 30%;
+.col-70 label {
+    color: #4A4949;
+    font-size: 16px;
+    flex-basis: 30%;
 }
 
-.col-70 select{
-  width: 93%;
-  margin: 3px 20px 10px 0;
-  padding: 5px;
-  outline: none;
-  font-size: 14px;
-  color: #777;
+.col-70 select {
+    width: 93%;
+    margin: 3px 20px 10px 0;
+    padding: 5px;
+    outline: none;
+    font-size: 14px;
+    color: #777;
 }
 
 .col-70 input[type=text],
-.col-70 input[type=number]{
-  width: 90%;
-  margin: 3px 20px 10px 0;
-  padding: 5px;
-  outline: none;
-  font-size: 14px;
-  color: #777;
+.col-70 input[type=number] {
+    width: 90%;
+    margin: 3px 20px 10px 0;
+    padding: 5px;
+    outline: none;
+    font-size: 14px;
+    color: #777;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-.col-30{
-  flex-basis: 30%;
-  padding-top: 60px;
-  padding-right: 20px;
-  text-align: left;
+.col-30 {
+    flex-basis: 30%;
+    padding-top: 60px;
+    padding-right: 20px;
+    text-align: left;
 }
 
-.col-30 img{
-  border: 1px solid #777;
-  width: 250px;
-  height: 270px;
-  margin-bottom: 20px;
+.col-30 img {
+    border: 1px solid #777;
+    width: 250px;
+    height: 270px;
+    margin-bottom: 20px;
 }
 
-.col-30 input[type=file]{
-  display: none;
+.col-30 input[type=file] {
+    display: none;
 }
-
 
 .col-30 .upload-btn {
-  display: inline-block;
-  background: #337ab7;
-  color: white;
-  padding: 3px 7px;
-  font-size: 14px;
-  border: none;
-  cursor: pointer;
-  text-align: center;
+    display: inline-block;
+    background: #337ab7;
+    color: white;
+    padding: 3px 7px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
 }
 
-.col-30 .add-btn{
-  display: inline-block;
-  background: #337ab7;
-  color: white;
-  padding: 5px 10px;
-  font-size: 14px;
-  border: none;
-  text-align: center;
-  cursor: pointer;
+.col-30 .add-btn {
+    display: inline-block;
+    background: #337ab7;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
 }
 
-.col-30 .add-btn:focus{
-  outline: none;
+.col-30 .add-btn:focus {
+    outline: none;
 }
 
-.col-30 .add-btn i{
-  font-size: 14px;
-  padding: 3px;
+.col-30 .add-btn i {
+    font-size: 14px;
+    padding: 3px;
 }

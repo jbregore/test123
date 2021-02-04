@@ -9,7 +9,7 @@
 				<li><a id="ut" href="user-dashboard.php" class="active">T-Shirts</a></li>
 				<li><a id="uh" href="user-dashboard-hoodies.php">Hoodies</a></li>
 				<li><a id="uo" href="user-dashboard-others.php">Others</a></li>
-				<li><a href="">Settings</a></li>
+				<li><a id="us" href="user-dashboard-settings.php">Settings</a></li>
 				<li><a href="logout.php">Logout</a></li>
 			</ul>
 		</nav>

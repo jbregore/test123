@@ -4,6 +4,14 @@ class User{
 	private $conn;
 	private $table_name = "tbl_user";
 
+
+	private $table_admin = "tbl_admin";
+	public $admin_old_password;
+	public $admin_new_password;
+
+	public $user_old_password;
+	public $user_new_password;
+
 	//object properties
 	public $user_id;
 	public $user_username;
@@ -148,6 +156,52 @@ class User{
 	
 	}
 
+	//login admin
+	public function login_admin(){
+		// Create query
+
+		$query = "SELECT * FROM $this->table_admin WHERE username = ? AND password = ? ";
+
+		//prepare and bind
+		$stmt = mysqli_stmt_init($this->conn);
+
+		if(!mysqli_stmt_prepare($stmt, $query)){
+			echo "SQL statement failed";
+		}
+		else{
+			mysqli_stmt_bind_param($stmt, "ss", $this->user_username, $this->user_password);
+
+			//execute query
+			mysqli_stmt_execute($stmt);
+			$result = mysqli_stmt_get_result($stmt);
+
+			if(mysqli_stmt_execute($stmt)){
+				
+				if(mysqli_num_rows($result) == 1){
+
+					while($row = mysqli_fetch_assoc($result)){
+						$this->user_username = $row['username'];
+						$this->user_password = $row['password'];
+					}
+
+					$row = mysqli_fetch_assoc($result);
+					session_start();
+					$_SESSION['user_id'] = 'admin';
+					return true;
+					// echo "kalamugang utot";
+				}
+				else{
+					// echo "failed";
+					return false;
+				}
+				
+				
+			}//end first stmt
+			return false;
+		} 
+	
+	}
+
 
 	//block
 	public function block(){
@@ -192,6 +246,116 @@ class User{
 		} 
 	}
 	
+	//admin change pass
+	public function admin_change(){
+		// Create query
+		$query = "SELECT password FROM $this->table_admin";
+
+		//prepare and bind
+		$stmt = mysqli_stmt_init($this->conn);
+
+		if(!mysqli_stmt_prepare($stmt, $query)){
+			echo "SQL statement failed";
+		}
+		else{
+
+			//execute query
+			mysqli_stmt_execute($stmt);
+			$result = mysqli_stmt_get_result($stmt);
+
+			if(mysqli_stmt_execute($stmt)){
+				
+				if(mysqli_num_rows($result) == 1){
+					while($row = mysqli_fetch_assoc($result)){
+						$old_pass = $row['password'];
+					}
+
+					if($old_pass == $this->admin_old_password){
+						//execute query
+						$change = "UPDATE $this->table_admin SET password = ?";
+						$stmt = mysqli_stmt_init($this->conn);
+
+						if(!mysqli_stmt_prepare($stmt, $change)){
+							echo "SQL statement failed";
+						}
+						else{
+							mysqli_stmt_bind_param($stmt, "s", $this->admin_new_password);
+
+							if(mysqli_stmt_execute($stmt)){
+								return true;
+							}
+							return false;
+						}
+					}
+
+				}
+				else{
+					// echo "failed";
+					return false;
+				}
+				
+				
+			}//end first stmt
+			return false;
+		} 
+	
+	}
+	
+	//user change pass
+	public function user_change(){
+		// Create query
+		$query = "SELECT user_password FROM $this->table_name WHERE user_id = ?";
+
+		//prepare and bind
+		$stmt = mysqli_stmt_init($this->conn);
+
+		if(!mysqli_stmt_prepare($stmt, $query)){
+			echo "SQL statement failed";
+		}
+		else{
+			mysqli_stmt_bind_param($stmt, "s", $this->user_id);
+			//execute query
+			mysqli_stmt_execute($stmt);
+			$result = mysqli_stmt_get_result($stmt);
+
+			if(mysqli_stmt_execute($stmt)){
+				
+				if(mysqli_num_rows($result) == 1){
+					while($row = mysqli_fetch_assoc($result)){
+						$old_pass = $row['user_password'];
+					}
+
+					if($old_pass == $this->user_old_password){
+						//execute query
+						$change = "UPDATE $this->table_name SET user_password = ? WHERE user_id = ?";
+						$stmt = mysqli_stmt_init($this->conn);
+
+						if(!mysqli_stmt_prepare($stmt, $change)){
+							echo "SQL statement failed";
+						}
+						else{
+							mysqli_stmt_bind_param($stmt, "ss", $this->user_new_password, $this->user_id);
+
+							if(mysqli_stmt_execute($stmt)){
+								return true;
+							}
+							return false;
+						}
+					}
+
+				}
+				else{
+					// echo "failed";
+					return false;
+				}
+				
+				
+			}//end first stmt
+			return false;
+		} 
+	
+	}
+
 
 }//end product
 

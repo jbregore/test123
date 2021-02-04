@@ -15,12 +15,13 @@ $response = array();
 //directory
 $upload_dir = '../uploads/';
 
-//url
+//url				//projectname/ tas yung target directory yung target folder na pagsesavan
 $upload_url = 'http://localhost/test_hghmnds/backend/uploads/';
 
 
 if(isset($_FILES['prod-img'])){
-	
+	//yung prod-img sya yung name ng input type file ko
+	// input type="file" name="prod-img" yan ganyan
 	$file = $_FILES['prod-img'];
 	$filename = $_FILES['prod-img']['name'];
 	$fileTmpName = $_FILES['prod-img']['tmp_name'];
@@ -35,6 +36,7 @@ if(isset($_FILES['prod-img'])){
 	if(in_array($fileActualExt, $allowed)){//image extension allowed
 		if($fileError === 0){//file error of image
 			if($fileSize < 10000000){//file size of image
+				//giving uniqid to file name
 				$fileNameNew = uniqid('', true).".".$fileActualExt;
 				$fileDest = $upload_dir.$fileNameNew;
 				move_uploaded_file($fileTmpName, $fileDest);
@@ -58,6 +60,7 @@ if(isset($_FILES['prod-img'])){
 			$response = array("url" => $upload_url .  $fileNameNew, "message" => "There was an error in your image file");
 				echo json_encode($response);
 			return;
+			//echo "gago";
 		}
 	}//end image extension
 	else{

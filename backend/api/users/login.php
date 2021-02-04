@@ -26,6 +26,7 @@ $user->user_password = $data->login_password;
 
 //call login
 $isLog = $user->login();
+$isLogAdmin = $user->login_admin();
 
 if($isLog){
 	//201 - created
@@ -33,10 +34,25 @@ if($isLog){
 
 	// user array
 	$user_arr = array(
+		'position' => 'user',
 		'user_id' => $user->user_id,
 		'user_username' => $user->user_username,
 		'user_password' => $user->user_password,
 		'user_status' => $user->user_status
+	);
+
+	// make json
+	echo json_encode($user_arr);
+}
+else if($isLogAdmin){
+	//201 - created
+	http_response_code(201);
+
+	// user array
+	$user_arr = array(
+		'position' => 'admin',
+		'user_username' => $user->user_username,
+		'user_password' => $user->user_password
 	);
 
 	// make json

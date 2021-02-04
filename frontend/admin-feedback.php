@@ -1,5 +1,16 @@
 <?php
-include 'admin-header.php';
+
+	session_start();
+	if(isset($_SESSION['user_id'])){
+		
+	}
+	else{
+		header("Location: account.php");
+		exit;
+	}
+
+	include 'admin-header.php';
+	
 ?>
 
 

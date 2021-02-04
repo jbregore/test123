@@ -6,6 +6,7 @@ class Transaction{
 
 	//object properties
 	//user
+	public $trans_id;
 	public $user_id;
 
 	//paypal
@@ -67,6 +68,27 @@ class Transaction{
 
 		return $stmt;
 	}
+
+	// delete transaction
+    public function delete() {
+		// Create query
+		$query = "DELETE FROM $this->table_name WHERE trans_id = ?";
+
+		// prepare and bind
+		$stmt = mysqli_stmt_init($this->conn);
+
+		if(!mysqli_stmt_prepare($stmt, $query)){
+			echo "SQL statement failed";
+		}
+		else{
+			mysqli_stmt_bind_param($stmt, "i", $this->trans_id);
+
+			if(mysqli_stmt_execute($stmt)){
+				return true;
+			}
+			return false;
+		}      
+    }
 	
 }//end transaction
 

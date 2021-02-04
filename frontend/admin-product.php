@@ -1,5 +1,14 @@
 <?php
-include 'admin-header.php';
+	session_start();
+	if(isset($_SESSION['user_id'])){
+		
+	}
+	else{
+		header("Location: account.php");
+		exit;
+	}
+
+	include 'admin-header.php';
 ?>
 
 
@@ -32,7 +41,7 @@ include 'admin-header.php';
 					<select name="prod-category" id="sel-prod-category">
 						<option value="t-shirt" selected>T-shirt</option>
 						<option value="hoodie">Hoodie</option>
-						<option value="other">Cap</option>
+						<option value="other">Others</option>
 					</select><br>
 
 					<label for="prod-brand">Brand :</label>
@@ -63,6 +72,7 @@ include 'admin-header.php';
 					<img id="img-prod">
 					<label class="upload-btn" for="upload">Upload File</label>
 					<input type="file" name="prod-img" id="upload" onchange="previewFile()" accept="image/x-png,image/gif,image/jpeg" >
+					<input type="hidden" id="upload-photo">
 
 					<input type="hidden" name="action" id="action" value="add_product">
 					<button type="submit" class="add-btn" name="form-action" id="form-action">

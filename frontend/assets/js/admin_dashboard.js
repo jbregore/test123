@@ -28,4 +28,43 @@ $(document).ready(function () {
     $(".admin-nav").toggle(1000);
   });
 
+  let myChart = document.getElementById('myChart').getContext('2d');
+
+  let massPopChart = new Chart(myChart, {
+    type: 'bar',
+    data: {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+      datasets: [{
+        label: 'This is just a static graph',
+        data: [
+          617594,
+          481645,
+          153060,
+          106519,
+          105562,
+          95072
+        ],
+        backgroundColor: [
+          '#fcebcf',
+          '#fcebcf',
+          '#fcebcf',
+          '#fcebcf',
+          '#fcebcf',
+          '#fcebcf'
+        ],
+        borderColor: [
+          '#f39c12',
+          '#f39c12',
+          '#f39c12',
+          '#f39c12',
+          '#f39c12',
+          '#f39c12'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {}
+
+  });
+
 });
